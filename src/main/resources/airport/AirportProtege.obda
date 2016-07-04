@@ -1,0 +1,69 @@
+[PrefixDeclaration]
+:		http://www.omg.org/AirportOrz#
+owl:		http://www.w3.org/2002/07/owl#
+rdf:		http://www.w3.org/1999/02/22-rdf-syntax-ns#
+xml:		http://www.w3.org/XML/1998/namespace
+xsd:		http://www.w3.org/2001/XMLSchema#
+rdfs:		http://www.w3.org/2000/01/rdf-schema#
+
+[SourceDeclaration]
+sourceUri	datasource1
+connectionUrl	jdbc:postgresql://localhost/airportDB
+username	postgres
+password	yinalsyy
+driverClass	org.postgresql.Driver
+
+[MappingDeclaration] @collection [[
+mappingId	cl_Airline
+target		:airline{id} a :Airline ; :airlineName {name} ; :airlineId {id} ; :airlineAlias {alias} ; :airlineCallSign {callsign} ; :airlineCode :iata{iata} , :icao{icao} . :iata{iata} a :IATA ; :iataCode {iata} . :icao{icao} a :ICAO ; :icaoCode {icao} . 
+source		select "id", "name", "alias", "callsign", "iata", "icao" from "AirLine"
+
+mappingId	cl_Airport
+target		:airport{id} a :Airport ; :airportId {id} ; :airportName {name} ; :airportCode :faa{faa} , :iata{iata} , :icao{icao} ; :airportCity :city{city}_{country} ; :inTimeZone :timezone{timezone}{dst} ; :airportPosition :position{latitude}{longitude}{altitude} . :city{city}_{country} :cityPosition :position{latitude}{longitude}{altitude} . 
+source		select "id", "name", "faa", "iata", "icao", "city", "country", "timezone", "dst", "latitude", "longitude", "altitude" from "Airport"
+
+mappingId	cl_Route
+target		:route{id} a :Route ; :routeCodeShare {codeshare} ; :routeStops {stops} ; :belongsTo :airline{airlineid} ; :departsFrom :airport{departureairportid} ; :arrivesAt :airport{arrivalairportid} . 
+source		select "id", "codeshare", "stops", "airlineid", "departureairportid", "arrivalairportid" from "Route"
+
+mappingId	cl_Plane
+target		:plane{model} a :Plane ; :planeModel {model} . 
+source		select "model" from "Plane"
+
+mappingId	cl_City
+target		:city{name}_{countryname} a :City ; :cityName {name} ; :from :country{countryname} . 
+source		select "name", "countryname" from "City"
+
+mappingId	cl_Country
+target		:country{name} a :Country ; :countryName {name} ; :locatedIn :region{regionname} . 
+source		select "name", "regionname" from "Country"
+
+mappingId	cl_Position
+target		:postion{latitude}{longitude}{altitude} a :Position ; :posLatitude {latitude} ; :posLongitude {longitude} ; :posAltitude {altitude} . 
+source		select distinct "latitude", "longitude", "altitude" from "Airport"
+
+mappingId	cl_TimeZone
+target		:timezone{timezone}{dst} a :TimeZone ; :timeZoneDST {dst} ; :timeZoneHoursOffset {timezone} . 
+source		select distinct "timezone", "dst" from "Airport"
+
+mappingId	cl_FAA
+target		:faa{faa} a :FAA ; :faaCode {faa} . 
+source		select distinct "faa" from "Airport"
+
+mappingId	cl_IATA
+target		:iata{iata} a :IATA ; :iataCode {iata} . 
+source		select distinct "iata" from "Airport"
+
+mappingId	cl_ICAO
+target		:icao{icao} a :ICAO ; :icaoCode {icao} . 
+source		select distinct "icao" from "Airport"
+
+mappingId	cl_Region
+target		:region{name} a :Region ; :regionName {name} . 
+source		select "name" from "Region"
+
+mappingId	op_usedIn
+target		:plane{plane} :usedIn :route{route} . 
+source		select "plane", "route" from "UsedIn"
+]]
+

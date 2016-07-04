@@ -1,0 +1,432 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.omg.org/AirportOrz#"
+     xml:base="http://www.omg.org/AirportOrz"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.omg.org/AirportOrz"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.omg.org/AirportOrz#airlineCode -->
+
+    <owl:ObjectProperty rdf:about="http://www.omg.org/AirportOrz#airlineCode">
+        <rdfs:domain rdf:resource="http://www.omg.org/AirportOrz#Airline"/>
+        <rdfs:range rdf:resource="http://www.omg.org/AirportOrz#Code"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.omg.org/AirportOrz#airportCity -->
+
+    <owl:ObjectProperty rdf:about="http://www.omg.org/AirportOrz#airportCity">
+        <rdfs:domain rdf:resource="http://www.omg.org/AirportOrz#Airport"/>
+        <rdfs:range rdf:resource="http://www.omg.org/AirportOrz#City"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.omg.org/AirportOrz#airportCode -->
+
+    <owl:ObjectProperty rdf:about="http://www.omg.org/AirportOrz#airportCode">
+        <rdfs:domain rdf:resource="http://www.omg.org/AirportOrz#Airport"/>
+        <rdfs:range rdf:resource="http://www.omg.org/AirportOrz#Code"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.omg.org/AirportOrz#airportPosition -->
+
+    <owl:ObjectProperty rdf:about="http://www.omg.org/AirportOrz#airportPosition">
+        <rdfs:domain rdf:resource="http://www.omg.org/AirportOrz#Airport"/>
+        <rdfs:range rdf:resource="http://www.omg.org/AirportOrz#Position"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.omg.org/AirportOrz#arrivesAt -->
+
+    <owl:ObjectProperty rdf:about="http://www.omg.org/AirportOrz#arrivesAt">
+        <rdfs:domain rdf:resource="http://www.omg.org/AirportOrz#Route"/>
+        <rdfs:range rdf:resource="http://www.omg.org/AirportOrz#Airport"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.omg.org/AirportOrz#belongsTo -->
+
+    <owl:ObjectProperty rdf:about="http://www.omg.org/AirportOrz#belongsTo">
+        <rdfs:domain rdf:resource="http://www.omg.org/AirportOrz#Route"/>
+        <rdfs:range rdf:resource="http://www.omg.org/AirportOrz#Airline"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.omg.org/AirportOrz#cityPosition -->
+
+    <owl:ObjectProperty rdf:about="http://www.omg.org/AirportOrz#cityPosition">
+        <rdfs:domain rdf:resource="http://www.omg.org/AirportOrz#City"/>
+        <rdfs:range rdf:resource="http://www.omg.org/AirportOrz#Position"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.omg.org/AirportOrz#departsFrom -->
+
+    <owl:ObjectProperty rdf:about="http://www.omg.org/AirportOrz#departsFrom">
+        <rdfs:domain rdf:resource="http://www.omg.org/AirportOrz#Route"/>
+        <rdfs:range rdf:resource="http://www.omg.org/AirportOrz#Airport"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.omg.org/AirportOrz#from -->
+
+    <owl:ObjectProperty rdf:about="http://www.omg.org/AirportOrz#from">
+        <rdfs:domain rdf:resource="http://www.omg.org/AirportOrz#City"/>
+        <rdfs:range rdf:resource="http://www.omg.org/AirportOrz#Country"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.omg.org/AirportOrz#inTimeZone -->
+
+    <owl:ObjectProperty rdf:about="http://www.omg.org/AirportOrz#inTimeZone">
+        <rdfs:domain rdf:resource="http://www.omg.org/AirportOrz#Airport"/>
+        <rdfs:range rdf:resource="http://www.omg.org/AirportOrz#TimeZone"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.omg.org/AirportOrz#locatedIn -->
+
+    <owl:ObjectProperty rdf:about="http://www.omg.org/AirportOrz#locatedIn">
+        <rdfs:domain rdf:resource="http://www.omg.org/AirportOrz#Country"/>
+        <rdfs:range rdf:resource="http://www.omg.org/AirportOrz#Region"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.omg.org/AirportOrz#usedIn -->
+
+    <owl:ObjectProperty rdf:about="http://www.omg.org/AirportOrz#usedIn">
+        <rdfs:domain rdf:resource="http://www.omg.org/AirportOrz#Plane"/>
+        <rdfs:range rdf:resource="http://www.omg.org/AirportOrz#Route"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.omg.org/AirportOrz#airlineAlias -->
+
+    <owl:DatatypeProperty rdf:about="http://www.omg.org/AirportOrz#airlineAlias">
+        <rdfs:domain rdf:resource="http://www.omg.org/AirportOrz#Airline"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.omg.org/AirportOrz#airlineCallSign -->
+
+    <owl:DatatypeProperty rdf:about="http://www.omg.org/AirportOrz#airlineCallSign">
+        <rdfs:domain rdf:resource="http://www.omg.org/AirportOrz#Airline"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.omg.org/AirportOrz#airlineId -->
+
+    <owl:DatatypeProperty rdf:about="http://www.omg.org/AirportOrz#airlineId">
+        <rdfs:domain rdf:resource="http://www.omg.org/AirportOrz#Airline"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#long"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.omg.org/AirportOrz#airlineName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.omg.org/AirportOrz#airlineName">
+        <rdfs:domain rdf:resource="http://www.omg.org/AirportOrz#Airline"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.omg.org/AirportOrz#airportId -->
+
+    <owl:DatatypeProperty rdf:about="http://www.omg.org/AirportOrz#airportId">
+        <rdfs:domain rdf:resource="http://www.omg.org/AirportOrz#Airport"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#long"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.omg.org/AirportOrz#airportName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.omg.org/AirportOrz#airportName">
+        <rdfs:domain rdf:resource="http://www.omg.org/AirportOrz#Airport"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.omg.org/AirportOrz#cityName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.omg.org/AirportOrz#cityName">
+        <rdfs:domain rdf:resource="http://www.omg.org/AirportOrz#City"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.omg.org/AirportOrz#codeCode -->
+
+    <owl:DatatypeProperty rdf:about="http://www.omg.org/AirportOrz#codeCode">
+        <rdfs:domain rdf:resource="http://www.omg.org/AirportOrz#Code"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.omg.org/AirportOrz#countryName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.omg.org/AirportOrz#countryName">
+        <rdfs:domain rdf:resource="http://www.omg.org/AirportOrz#Country"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.omg.org/AirportOrz#faaCode -->
+
+    <owl:DatatypeProperty rdf:about="http://www.omg.org/AirportOrz#faaCode">
+        <rdfs:subPropertyOf rdf:resource="http://www.omg.org/AirportOrz#codeCode"/>
+        <rdfs:domain rdf:resource="http://www.omg.org/AirportOrz#FAA"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.omg.org/AirportOrz#iataCode -->
+
+    <owl:DatatypeProperty rdf:about="http://www.omg.org/AirportOrz#iataCode">
+        <rdfs:subPropertyOf rdf:resource="http://www.omg.org/AirportOrz#codeCode"/>
+        <rdfs:domain rdf:resource="http://www.omg.org/AirportOrz#IATA"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.omg.org/AirportOrz#icaoCode -->
+
+    <owl:DatatypeProperty rdf:about="http://www.omg.org/AirportOrz#icaoCode">
+        <rdfs:subPropertyOf rdf:resource="http://www.omg.org/AirportOrz#codeCode"/>
+        <rdfs:domain rdf:resource="http://www.omg.org/AirportOrz#ICAO"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.omg.org/AirportOrz#planeModel -->
+
+    <owl:DatatypeProperty rdf:about="http://www.omg.org/AirportOrz#planeModel">
+        <rdfs:domain rdf:resource="http://www.omg.org/AirportOrz#Plane"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.omg.org/AirportOrz#posAltitude -->
+
+    <owl:DatatypeProperty rdf:about="http://www.omg.org/AirportOrz#posAltitude">
+        <rdfs:domain rdf:resource="http://www.omg.org/AirportOrz#Position"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.omg.org/AirportOrz#posLatitude -->
+
+    <owl:DatatypeProperty rdf:about="http://www.omg.org/AirportOrz#posLatitude">
+        <rdfs:domain rdf:resource="http://www.omg.org/AirportOrz#Position"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.omg.org/AirportOrz#posLongitude -->
+
+    <owl:DatatypeProperty rdf:about="http://www.omg.org/AirportOrz#posLongitude">
+        <rdfs:domain rdf:resource="http://www.omg.org/AirportOrz#Position"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.omg.org/AirportOrz#regionName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.omg.org/AirportOrz#regionName">
+        <rdfs:domain rdf:resource="http://www.omg.org/AirportOrz#Region"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.omg.org/AirportOrz#routeCodeShare -->
+
+    <owl:DatatypeProperty rdf:about="http://www.omg.org/AirportOrz#routeCodeShare">
+        <rdfs:domain rdf:resource="http://www.omg.org/AirportOrz#Route"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.omg.org/AirportOrz#routeStops -->
+
+    <owl:DatatypeProperty rdf:about="http://www.omg.org/AirportOrz#routeStops">
+        <rdfs:domain rdf:resource="http://www.omg.org/AirportOrz#Route"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.omg.org/AirportOrz#timeZoneDST -->
+
+    <owl:DatatypeProperty rdf:about="http://www.omg.org/AirportOrz#timeZoneDST">
+        <rdfs:domain rdf:resource="http://www.omg.org/AirportOrz#TimeZone"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.omg.org/AirportOrz#timeZoneHoursOffset -->
+
+    <owl:DatatypeProperty rdf:about="http://www.omg.org/AirportOrz#timeZoneHoursOffset">
+        <rdfs:domain rdf:resource="http://www.omg.org/AirportOrz#TimeZone"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.omg.org/AirportOrz#Airline -->
+
+    <owl:Class rdf:about="http://www.omg.org/AirportOrz#Airline"/>
+    
+
+
+    <!-- http://www.omg.org/AirportOrz#Airport -->
+
+    <owl:Class rdf:about="http://www.omg.org/AirportOrz#Airport"/>
+    
+
+
+    <!-- http://www.omg.org/AirportOrz#City -->
+
+    <owl:Class rdf:about="http://www.omg.org/AirportOrz#City"/>
+    
+
+
+    <!-- http://www.omg.org/AirportOrz#Code -->
+
+    <owl:Class rdf:about="http://www.omg.org/AirportOrz#Code"/>
+    
+
+
+    <!-- http://www.omg.org/AirportOrz#Country -->
+
+    <owl:Class rdf:about="http://www.omg.org/AirportOrz#Country"/>
+    
+
+
+    <!-- http://www.omg.org/AirportOrz#FAA -->
+
+    <owl:Class rdf:about="http://www.omg.org/AirportOrz#FAA">
+        <rdfs:subClassOf rdf:resource="http://www.omg.org/AirportOrz#Code"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.omg.org/AirportOrz#IATA -->
+
+    <owl:Class rdf:about="http://www.omg.org/AirportOrz#IATA">
+        <rdfs:subClassOf rdf:resource="http://www.omg.org/AirportOrz#Code"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.omg.org/AirportOrz#ICAO -->
+
+    <owl:Class rdf:about="http://www.omg.org/AirportOrz#ICAO">
+        <rdfs:subClassOf rdf:resource="http://www.omg.org/AirportOrz#Code"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.omg.org/AirportOrz#Plane -->
+
+    <owl:Class rdf:about="http://www.omg.org/AirportOrz#Plane"/>
+    
+
+
+    <!-- http://www.omg.org/AirportOrz#Position -->
+
+    <owl:Class rdf:about="http://www.omg.org/AirportOrz#Position"/>
+    
+
+
+    <!-- http://www.omg.org/AirportOrz#Region -->
+
+    <owl:Class rdf:about="http://www.omg.org/AirportOrz#Region"/>
+    
+
+
+    <!-- http://www.omg.org/AirportOrz#Route -->
+
+    <owl:Class rdf:about="http://www.omg.org/AirportOrz#Route"/>
+    
+
+
+    <!-- http://www.omg.org/AirportOrz#TimeZone -->
+
+    <owl:Class rdf:about="http://www.omg.org/AirportOrz#TimeZone"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.5.20160517-0735) https://github.com/owlcs/owlapi -->
+
