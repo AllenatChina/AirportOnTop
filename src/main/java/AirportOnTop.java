@@ -27,8 +27,8 @@ public class AirportOnTop extends JDialog {
     private JLabel hint;
     private JTextField rtAirline;
 
-    final static String owlFile = "src/main/resources/airport/AirportProtege.owl";
-    final static String obdaFile = "src/main/resources/airport/AirportProtege.obda";
+    final static String owlFile = "src/main/resources/ontology/AirportProtege.owl";
+    final static String obdaFile = "src/main/resources/ontology/AirportProtege.obda";
 
     private OntopConnector connector;
 
@@ -59,8 +59,8 @@ public class AirportOnTop extends JDialog {
         apQuery.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 QueryStore.Query query = new QueryStore.Query()
-                        .select("?airport").orderby("?airport")
-                        .where("?a", "a", ":Airport").where("?a",":airportName","?airport");
+                        .select("?ontology").orderby("?ontology")
+                        .where("?a", "a", ":Airport").where("?a",":airportName","?ontology");
 
                 if (!apName.getText().isEmpty()) {
                     query.where("?a", ":airportName", "\"" + apName.getText() + "\"^^xsd:string");

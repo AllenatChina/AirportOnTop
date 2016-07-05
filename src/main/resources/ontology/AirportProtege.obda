@@ -19,11 +19,11 @@ target		:airline{id} a :Airline ; :airlineName {name} ; :airlineId {id} ; :airli
 source		select "id", "name", "alias", "callsign", "iata", "icao" from "AirLine"
 
 mappingId	cl_Airport
-target		:airport{id} a :Airport ; :airportId {id} ; :airportName {name} ; :airportCode :faa{faa} , :iata{iata} , :icao{icao} ; :airportCity :city{city}_{country} ; :inTimeZone :timezone{timezone}{dst} ; :airportPosition :position{latitude}{longitude}{altitude} . :city{city}_{country} :cityPosition :position{latitude}{longitude}{altitude} . 
+target		:ontology{id} a :Airport ; :airportId {id} ; :airportName {name} ; :airportCode :faa{faa} , :iata{iata} , :icao{icao} ; :airportCity :city{city}_{country} ; :inTimeZone :timezone{timezone}{dst} ; :airportPosition :position{latitude}{longitude}{altitude} . :city{city}_{country} :cityPosition :position{latitude}{longitude}{altitude} .
 source		select "id", "name", "faa", "iata", "icao", "city", "country", "timezone", "dst", "latitude", "longitude", "altitude" from "Airport"
 
 mappingId	cl_Route
-target		:route{id} a :Route ; :routeCodeShare {codeshare} ; :routeStops {stops} ; :belongsTo :airline{airlineid} ; :departsFrom :airport{departureairportid} ; :arrivesAt :airport{arrivalairportid} . 
+target		:route{id} a :Route ; :routeCodeShare {codeshare} ; :routeStops {stops} ; :belongsTo :airline{airlineid} ; :departsFrom :ontology{departureairportid} ; :arrivesAt :ontology{arrivalairportid} .
 source		select "id", "codeshare", "stops", "airlineid", "departureairportid", "arrivalairportid" from "Route"
 
 mappingId	cl_Plane
