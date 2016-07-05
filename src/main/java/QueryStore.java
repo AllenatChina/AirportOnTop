@@ -1,6 +1,5 @@
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by yin on 04/07/16.
@@ -8,25 +7,35 @@ import java.util.Map;
 @SuppressWarnings("ALL")
 public class QueryStore {
 
-    public static Query getAllAirportNames() {
-        return new Query().select("?n").orderby("?n")
+    public static Query getAllAirports() {
+        return new Query().select("*").orderby("?n")
                 .where("?a", "a", ":Airport")
                 .where("?a", ":airportName", "?n");
     }
 
-    public static Query getAllAirlineNames() {
+    public static Query getAllAirlines() {
         return new Query().select("?n").orderby("?n")
                 .where("?a", "a", ":Airline")
                 .where("?a", ":airlineName", "?n");
     }
 
-    public static Query getAllAirportNamesWithCode(String code) {
+    public static Query getAllAirportsWithCode(String code) {
         return new Query().select("?n").orderby("?n")
                 .where("?a", "a", ":Airport")
                 .where("?a", ":airportName", "?n")
                 .where("?a", ":airportCode", "?c")
                 .where("?c", ":codeCode", "\"" + code.toUpperCase() + "\"^^xsd:string");
     }
+
+    public static Query getAllAirlinesWithCode(String code) {
+        return new Query().select("?n").orderby("?n")
+                .where("?a", "a", ":Airline")
+                .where("?a", ":airlineName", "?n")
+                .where("?a", ":airlineCode", "?c")
+                .where("?c", ":codeCode", "\"" + code.toUpperCase() + "\"^^xsd:string");
+    }
+
+
 
 
 
@@ -40,10 +49,11 @@ public class QueryStore {
 
         private String orderby = "";
 
-        Map<String, List<String>> result;
+        List<String[]> result;
+        String[] columns;
 
         public Query() {
-            result = new HashMap<String, List<String>>();
+            result = new ArrayList<String[]>();
         }
 
         public String getSparqlQuery() {
@@ -82,20 +92,23 @@ public class QueryStore {
         }
 
         public boolean hasResult() {
-            if (!result.isEmpty()) {
-                for (String s : result.keySet()) {
-                    if (!result.get(s).isEmpty()) {
-                        return true;
-                    }
-                }
-            }
-            return false;
+            return !result.isEmpty();
         }
 
-        public Map<String, List<String>> getResult() {
+        public String[] getColumns() {
+            return columns;
+        }
 
+        public void setColumns(String[] columns) {
+            this.columns = columns;
+        }
+
+        public void addRow(String[] row) {
+            result.add(row);
+        }
+
+        public List<String[]> getResult() {
             return result;
-
         }
 
     }

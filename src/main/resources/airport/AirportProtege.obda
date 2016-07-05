@@ -15,7 +15,7 @@ driverClass	org.postgresql.Driver
 
 [MappingDeclaration] @collection [[
 mappingId	cl_Airline
-target		:airline{id} a :Airline ; :airlineName {name} ; :airlineId {id} ; :airlineAlias {alias} ; :airlineCallSign {callsign} ; :airlineCode :iata{iata} , :icao{icao} . :iata{iata} a :IATA ; :iataCode {iata} . :icao{icao} a :ICAO ; :icaoCode {icao} . 
+target		:airline{id} a :Airline ; :airlineName {name} ; :airlineId {id} ; :airlineAlias {alias} ; :airlineCallSign {callsign} ; :airlineCode :iata{iata} , :icao{icao} . 
 source		select "id", "name", "alias", "callsign", "iata", "icao" from "AirLine"
 
 mappingId	cl_Airport
@@ -39,7 +39,7 @@ target		:country{name} a :Country ; :countryName {name} ; :locatedIn :region{reg
 source		select "name", "regionname" from "Country"
 
 mappingId	cl_Position
-target		:postion{latitude}{longitude}{altitude} a :Position ; :posLatitude {latitude} ; :posLongitude {longitude} ; :posAltitude {altitude} . 
+target		:position{latitude}{longitude}{altitude} a :Position ; :posLatitude {latitude} ; :posLongitude {longitude} ; :posAltitude {altitude} . 
 source		select distinct "latitude", "longitude", "altitude" from "Airport"
 
 mappingId	cl_TimeZone
@@ -65,5 +65,13 @@ source		select "name" from "Region"
 mappingId	op_usedIn
 target		:plane{plane} :usedIn :route{route} . 
 source		select "plane", "route" from "UsedIn"
+
+mappingId	cl_IATA2
+target		:iata{iata} a :IATA ; :iataCode {iata} . 
+source		select distinct "iata" from "AirLine"
+
+mappingId	cl_ICAO2
+target		:icao{icao} a :ICAO ; :icaoCode {icao} . 
+source		select distinct "icao" from "AirLine"
 ]]
 

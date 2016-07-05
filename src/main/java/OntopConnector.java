@@ -12,9 +12,7 @@ import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by yin on 04/07/16.
@@ -93,17 +91,16 @@ public class OntopConnector {
         final ToStringRenderer renderer = ToStringRenderer.getInstance();
 
         List<String> cols = rs.getSignature();
-        Map<String, List<String>> map = query.result;
-        for (String col : cols) {
-            map.put(col, new ArrayList<String>());
-        }
+        query.setColumns(cols.toArray(new String[0]));
 
         while (rs.nextRow()) {
-            for (String col : cols) {
-                OWLObject binding = rs.getOWLObject(col);
+            String[] row = new String[cols.size()];
+            for (int i = 0; i < cols.size(); i++) {
+                OWLObject binding = rs.getOWLObject(cols.get(i));
                 String value = renderer.getRendering(binding);
-                map.get(col).add(value);
+                row[i] = value;
             }
+            query.addRow(row);
         }
         rs.close();
 
