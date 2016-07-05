@@ -143,7 +143,7 @@ public class AirportOnTop extends JDialog {
                         query.where("?a", ":airportCity", "?ci2").where("?ci2", ":cityName", "\"" + rtTo.getText() + "\"^^xsd:string");
                     } else if (rtToCountry.isSelected()) {
                         query.where("?a", ":airportCity", "?ci2")
-                                .where("?ci2", ":from", "?co2").where("?co", ":countryName", "\"" + rtTo.getText() + "\"^^xsd:string");
+                                .where("?ci2", ":from", "?co2").where("?co2", ":countryName", "\"" + rtTo.getText() + "\"^^xsd:string");
                     }
                 }
 
