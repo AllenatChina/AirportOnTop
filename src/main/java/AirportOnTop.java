@@ -27,8 +27,8 @@ public class AirportOnTop extends JDialog {
     private JLabel hint;
     private JTextField rtAirline;
 
-    final static String owlFile = "src/main/resources/ontology/AirportProtege.owl";
-    final static String obdaFile = "src/main/resources/ontology/AirportProtege.obda";
+    static String owlFile = "src/main/resources/ontology/AirportProtege.owl";
+    static String obdaFile = "src/main/resources/ontology/AirportProtege.obda";
 
     private OntopConnector connector;
 

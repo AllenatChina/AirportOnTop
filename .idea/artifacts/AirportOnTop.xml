@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact name="AirportOnTop">
+    <output-path>$PROJECT_DIR$/out/artifacts/AirportOnTop</output-path>
+    <root id="root">
+      <element id="directory" name="ontology">
+        <element id="dir-copy" path="$PROJECT_DIR$/src/main/resources/ontology" />
+      </element>
+      <element id="artifact" artifact-name="kroFinalProject:jar" />
+    </root>
+  </artifact>
+</component>
